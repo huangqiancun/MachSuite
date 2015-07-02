@@ -9,12 +9,14 @@ from collections import namedtuple
 NO_SWEEP = -1
 LINEAR_SWEEP = 1
 EXP_SWEEP = 2
+
 ALWAYS_UNROLL = -1
-UNROLL_FLATTEN = 0
-UNROLL_ONE = 1
+UNROLL_FLATTEN = 0 # fully unroll a loop
+UNROLL_ONE = 1 # always unrool with a factor of 1, basically no unrolling
+
 PARTITION_CYCLIC = 1
 PARTITION_BLOCK = 2
-PARTITION_COMPLETE = 3
+PARTITION_COMPLETE = 3 # convert arrays to registers
 
 class SweepParam(namedtuple(
       "SweepParamBase", "name, start, end, step, step_type, short_name, "

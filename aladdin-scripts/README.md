@@ -37,6 +37,10 @@ space exploration.
    defines the SweepParam and Benchmark objects that are used in
    `machsuite_config.py` and `sweep_config.py`. Users do not need to modify it.
 
+## Requirements:
+-------------------
+These scripts expect that users have already installed Aladdin and LLVM-Tracer.
+
 ## Usage:
 -------------------
 
