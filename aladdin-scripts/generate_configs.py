@@ -19,8 +19,7 @@ except ImportError:
 from machsuite_config import MACH
 
 def write_aladdin_array_configs(benchmark, config_file, params):
-  """ Write the Aladdin array partitioning configurations.
-  """
+  """ Write the Aladdin array partitioning configurations. """
   if "partition" in params:
     for array in benchmark.arrays:
       if array.partition_type == PARTITION_CYCLIC:
@@ -58,8 +57,6 @@ def generate_aladdin_config(benchmark, kernel, params, loops):
     config_file.write("pipelining,%d\n" % params["pipelining"])
   if "cycle_time" in params:
     config_file.write("cycle_time,%d\n" % params["cycle_time"])
-  # TODO: Currently we're not separating arrays by kernel. This needs to
-  # change.
   write_aladdin_array_configs(benchmark, config_file, params)
 
   for loop in loops:

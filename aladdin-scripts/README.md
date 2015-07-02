@@ -1,5 +1,14 @@
-This directory includes Aladdin-compatible scripts for MachSuite to do design
-space exploration.
+Generating design sweeps
+========================
+
+Aladdin is designed to enable fast design sweeps of accelerator workloads, but
+manually writing configuration files for each design point quickly gets
+tedious. We have designed a flexible system for automatically generating design
+sweeps. This README will show you how to generate these sweeps.
+
+**NOTE**: If you are not yet familiar with Aladdin's execution model and
+simulation methodology, you are advised to read the ISCA paper and familiarize
+yourself with running Aladdin simulations before continuing.
 
 ## Files:
 -------------------

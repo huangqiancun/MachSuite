@@ -65,23 +65,19 @@ class Benchmark(object):
       source_file: Source code file name, excluding the extension. This should
         be a relative path from the command-line specified source_dir, so that
         the source file is located at <source_dir>/<benchmark_name>/<source_file>.
+      arness_file: if applicable. If used, test_harness is assumed to contain
+        main(); otherwise, source_file is used, and test_harness MUST be the empty
+        string "".
     """
     self.name = name
     self.source_file = source_file
     self.loops = []
     self.arrays = []
     self.kernels = []
-    # Test harness, if applicable. If used, test_harness is assumed to contain
-    # main(); otherwise, source_file is used, and test_harness MUST be the empty
-    # string "".
     self.test_harness = harness_file
 
   def add_loop(self, loop_name, line_num, trip_count=ALWAYS_UNROLL):
-    """ Add a loop, its line number, and its trip count to the benchmark.
-
-    If the loop is not tagged, the loop_name should be the name of the kernel
-    function to which it belongs.
-    """
+    """ Add a loop, its line number, and its trip count to the benchmark. """
     self.loops.append(Loop(name=loop_name,
                            line_num=line_num,
                            trip_count=trip_count))
@@ -94,12 +90,7 @@ class Benchmark(object):
                              partition_type=partition_type))
 
   def set_kernels(self, kernels):
-    """ Names of the distinct functions/kernels in the benchmark.
-
-    If there are multiple kernels, generate_separate_kernels() has been or will
-    be called, and the order in which they are executed matters, then that order
-    will be the order of this list. Sequential execution is enforced.
-    """
+    """ Names of the distinct functions/kernels in the benchmark. """
     self.kernels = kernels
 
   def set_test_harness(self, test_harness):
