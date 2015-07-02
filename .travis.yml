@@ -10,5 +10,4 @@ notifications:
     on_success: never
     on_failure: always
     recipients:
-      - reagen@fas.harvard.edu
-      - rdadolf@seas.harvard.edu
+      - shao@eecs.harvard.edu
